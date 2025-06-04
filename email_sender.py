@@ -90,23 +90,34 @@ html_body = """
 
 # Email Sending Logic
 if send_button and receiver_email:
-    try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = subject
-        msg["From"] = YOUR_EMAIL
-        msg["To"] = receiver_email
-        
+    email_list = [email.strip() for email in receiver_email.split(",") if email.strip()]
 
-        msg.attach(MIMEText(html_body, "html"))
+    success_list = []
+    fail_list = []
 
-       
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(YOUR_EMAIL, YOUR_PASSWORD)
-            server.sendmail(YOUR_EMAIL, receiver_email, msg.as_string())
+    for email in email_list:
+        try:
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = YOUR_EMAIL
+            msg["To"] = email
 
-        st.success("✅ Email sent successfully to " + receiver_email)
-    except Exception as e:
-        st.error("❌ Failed to send email: " + str(e))
+            msg.attach(MIMEText(html_body, "html"))
+
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                server.login(YOUR_EMAIL, YOUR_PASSWORD)
+                server.sendmail(YOUR_EMAIL, email, msg.as_string())
+
+            success_list.append(email)
+        except Exception as e:
+            fail_list.append((email, str(e)))
+
+    if success_list:
+        st.success("✅ Email sent to:\n" + ", ".join(success_list))
+    if fail_list:
+        st.error("❌ Failed to send to:")
+        for email, err in fail_list:
+            st.error(f"{email} ➜ {err}")
 
 # Full HTML Preview
 st.markdown("### 📨 Email Preview")
