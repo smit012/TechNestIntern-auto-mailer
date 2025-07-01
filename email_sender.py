@@ -37,7 +37,7 @@ html_body = """
     <hr>
     <h3>🔗 Important Details to Get Started:</h3>
     <ol>
-      <li><strong>📄 Offer Letter(Check July month folder:</strong><br>
+      <li><strong>📄 Offer Letter(Check July month folder):</strong><br>
             You can view and download your offer letter here:<br>
         👉 <a href="https://drive.google.com/drive/u/4/folders/1nONQtJZM-pbb_N4HtW7OM7iDgQn92GFj" target="_blank">Offer Letter Folder</a>
       </li><br>
