@@ -81,7 +81,7 @@ html_body = """
     <strong>TechNest Intern</strong><br>
     🔗 <a href="https://www.linkedin.com/company/technestintern/about/" target="_blank">LinkedIn</a></p>
 
-    <img src="https://i.ibb.co/Y4vZ2819/logo.png" alt="TechNest Logo" width="160"/>
+    <img src="https://i.ibb.co/20kqChz7/logo.png" alt="TechNest Logo" width="160"/>
   </body>
 </html>
 """
