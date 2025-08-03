@@ -81,7 +81,7 @@ html_body = """
     <strong>TechNest Intern</strong><br>
     🔗 <a href="https://www.linkedin.com/company/technestintern/about/" target="_blank">LinkedIn</a></p>
 
-    <img src="https://i.ibb.co/20kqChz7/logo.png" alt="TechNest Logo" width="160"/>
+    <img src="https://i.ibb.co/RGrQfXz8/logo.png" alt="TechNest Logo" width="160"/>
   </body>
 </html>
 """
@@ -122,4 +122,5 @@ if send_button and receiver_email:
 # Full HTML Preview
 st.markdown("### 📨 Email Preview")
 components.html(html_body, height=2000,)
+
 
